@@ -10,7 +10,7 @@ numbers = list(string.digits)  # '0' to '9'
 # Array of common symbols
 symbols = list("!@#$%^&*()_+-=[]{}|;:'\",.<>?/~`")
 
-print("Welcome to the password generator")
+print("\nWelcome to the password generator\n")
 
 nr_letters = int(input("Enter number of letters would you like?\n"))
 nr_symbols = int(input("Enter number of symbols would you like?\n"))
@@ -30,7 +30,7 @@ for symb in range(0, nr_symbols):
 for num in range(0, nr_numbers):
     password_easy += random.choice(numbers)
 
-print(f"Your easy password: {password_easy}\n")
+print(f"\nYour easy password: {password_easy}\n")
 
 # Hard Level    (Completely random order)
 
@@ -53,4 +53,4 @@ password_hard = ""
 for char in password_list:
     password_hard += char
 
-print(f"Your hard password: {password_hard}")
+print(f"Your hard password: {password_hard}\n")
