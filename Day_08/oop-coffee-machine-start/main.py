@@ -1,0 +1,41 @@
+# PROGRAM REQUIREMENTS
+
+# 1. Print reports
+# 2. Check resources sufficient
+# 3. Process coins
+# 4. Check transaction successfull 
+# 5. Make coffee 
+
+# (Check the pdf for more details about the steps)
+
+
+from menu import Menu
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
+
+money_machine = MoneyMachine()
+coffee_maker = CoffeeMaker()
+menu = Menu()
+
+is_on = True
+
+money_machine.report()
+coffee_maker.report()
+
+while is_on:
+    options = menu.get_items()
+    choice = input(f"What would you like? ({options})")
+    # print(choice)
+
+    if choice == "off":
+        is_on = False
+        print("Thank you!")
+    elif choice == "report":
+        money_machine.report()
+        coffee_maker.report()
+    else:
+        drink = menu.find_drink(choice)
+        if coffee_maker.is_resource_sufficient(drink):
+                if money_machine.make_payment(drink.cost):
+                     coffee_maker.make_coffee(drink)
+
